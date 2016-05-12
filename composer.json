@@ -1,6 +1,6 @@
 {
     "name": "codingmatters/academe-report",
-    "description": "Abstracted membership module",
+    "description": "Vanilla Integration in Managing the Reports of an Academic Systems",
     "keywords": ["academe report"],
     "homepage": "https://chronicles.codingmatters.io/academe/report/",
     "license": "MIT",
@@ -13,20 +13,40 @@
     ],
     "require": {
         "php": "^5.6 || ^7.0",
-        "roave/security-advisories": "dev-master",
-        "filp/whoops": "^2.0"
+        "roave/security-advisories": "dev-master"
     },
     "require-dev": {        
-        "squizlabs/php_codesniffer": "^2.3"
+        "phpunit/phpunit": "^4.8 || ^5.3",
+        "squizlabs/php_codesniffer": "^2.3",
+        "zendframework/zend-expressive": "^1.0",
+        "zendframework/zend-expressive-helpers": "^2.0",
+        "zendframework/zend-stdlib": "^2.7 || ^3.0",
+        "zendframework/zend-expressive-fastroute": "^1.0",
+        "zendframework/zend-servicemanager": "^2.7.3 || ^3.0",
+        "ocramius/proxy-manager": "^1.0 || ^2.0",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.0",
+        "filp/whoops": "^2.0",
+        "zendframework/zend-mvc": "^2.5"
     },
     "autoload": {
+        "classmap": ["./Module.php"],
         "psr-4": {
-            "Academe\\Report\\": "src/Report/"
+            "Report\\": "src/Report/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Academe\\ReportTest\\": "tests/"
+            "ReportTest\\": "test/ReportTest/"
         }
-    }
+    },
+    "scripts": {
+        "check": [
+            "@cs",
+            "@test"
+        ],
+        "cs": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit"
+    },
+    "minimum-stability": "stable"
 }
