@@ -25,43 +25,27 @@
  * THE SOFTWARE.
  */
 
-namespace Report;
+namespace ReportTest;
 
-use Zend\Mvc\ModuleRouteListener;
-use Zend\Mvc\MvcEvent;
+use Academe\Report\Module as ModuleConfig;
 
-class Module
+class ModuleTest extends \PHPUnit_Framework_TestCase
 {
-    public function onBootstrap(MvcEvent $e)
+    /**
+ * Academe\Prospectus\Module 
+*/
+    private $module;
+    
+    public function setUp()
     {
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
+        $this->module = new ModuleConfig();
     }
 
-    public function getConfig()
+    /**
+     * @test
+     */
+    public function checkRouterConfig()
     {
-        return include __DIR__ . '/config/module.config.php';
-    }
-
-    public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
-    }
-    
-    public function getControllerConfig()
-    {
-        return include __DIR__ . '/config/autoload/controller.config.php';
-    }
-    
-    public function getServiceConfig()
-    {
-        return include __DIR__ . '/config/autoload/container.config.php';
+        $this->assertArrayHasKey('router', $this->module->getConfig());
     }
 }
