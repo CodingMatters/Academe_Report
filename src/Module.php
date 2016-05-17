@@ -29,7 +29,7 @@ namespace Academe\Report;
 
 class Module
 {
-    public function getConfig()
+    public function __invoke()
     {
         return include __DIR__ . '/../config/module.config.php';
     }
