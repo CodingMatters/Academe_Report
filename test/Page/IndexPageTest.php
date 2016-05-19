@@ -18,7 +18,7 @@ class IndexPageTest extends \PHPUnit_Framework_TestCase
 {
     /** @var RouterInterface */
     protected $router;
-    
+
     /** @var TemplateRendererInterface */
     protected $template;
 
@@ -35,7 +35,7 @@ class IndexPageTest extends \PHPUnit_Framework_TestCase
     {
         $page = new ViewPage($this->router->reveal(), $this->template->reveal());
         $response = $page(new ServerRequest(['/report']), new Response(), function () {
-            
+
         });
 
         $this->assertTrue($response instanceof Response);
