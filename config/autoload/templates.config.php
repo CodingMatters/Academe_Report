@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'templates'     => [       
+    'templates'     => [
         'map'       => [],
         'paths'     => [
             'report'  => [__DIR__ . '/../../templates/page']
