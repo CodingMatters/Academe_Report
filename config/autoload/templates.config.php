@@ -1,12 +1,9 @@
 <?php
 
 return [
-    'templates'     => [
-        'layout'    => 'layout/default',
-        'map'       => [
-            
-        ],
-        'paths'      => [
+    'templates'     => [       
+        'map'       => [],
+        'paths'     => [
             'report'  => [__DIR__ . '/../../templates/page']
         ]
     ],
